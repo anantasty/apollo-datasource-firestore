@@ -39,6 +39,8 @@ export function reviverFactory (collection: CollectionReference) {
           return collection.firestore.doc(split[1])
         case '$$GeoPoint$$':
           return new GeoPoint(parseFloat(split[1]), parseFloat(split[2]))
+        case '$$CollectionRefrence$$':
+          return new CollectionReference(split[1])
         default:
           return value
       }
